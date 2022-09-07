@@ -1,0 +1,30 @@
+
+version: "3.9"
+services:
+  nginx:
+      image: nginx:1.0
+      container_name: "nginx_docker"
+      ports:
+        - "80:80"
+        - "443:443"
+      networks: 
+        - "projet"
+
+
+  mariadb:
+    image: mariadb:1.0
+    container_name: "mariadb_docker"
+    environment:
+        MYSQL_USER: "hime"
+        MYSQL_PASSWORD: "hime"
+        MYSQL_ROOT_PASSWORD: "1234"
+        MYSQL_DATABASE: "Music"
+    networks:
+        - "projet"
+    
+networks:
+  projet: {}
+
+
+
+
